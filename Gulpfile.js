@@ -31,6 +31,7 @@ gulp.task('live', function () {
 
 
 gulp.task('karma', shell.task([
+  'clear',
   'karma start'
 ]));
 
