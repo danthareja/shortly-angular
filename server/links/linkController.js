@@ -2,7 +2,6 @@ var Link    = require('./linkModel.js'),
     Q       = require('q'),
     util    = require('../config/utils.js');
 
-
 module.exports = {
   findUrl: function (req, res, next, code) {
     var findLink = Q.nbind(Link.findOne, Link);
@@ -33,6 +32,7 @@ module.exports = {
   },
 
   newLink: function (req, res, next) {
+    console.log(req.body);
     var url = req.body.url;
     console.log(req.body);
     if (!util.isValidUrl(url)) {
