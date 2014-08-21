@@ -6,5 +6,4 @@ angular.module('shortly.links', [])
     $scope.getLinks = function(){
       console.log('LinksController called getLinks('+JSON.stringify(arguments)+').');
     };
-    $scope.getLinks();
 });

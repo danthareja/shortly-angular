@@ -5,8 +5,16 @@ angular.module('shortly', [
   'shortly.auth',
   'ngRoute'
 ])
-.config(function($routeProvider, $httpProvider) {
+.config(function($routeProvider, $httpProvider, $locationProvider) {
+
+  // use the HTML5 History API
+  // $locationProvider.html5Mode(true);
+  // in index.html: <base href="/">
+
   $routeProvider
+    // .when('/', {
+    //   templateUrl: 'app/auth/signin.html'
+    // })
     .when('/signin', {
       templateUrl: 'app/auth/signin.html',
       controller: 'AuthController'
@@ -26,12 +34,11 @@ angular.module('shortly', [
     });
 
 
-
-    // We add our $httpInterceptor into the array
-    // of interceptors. Think of it like middleware for your ajax calls
-    $httpProvider.interceptors.push('AttatchTokens');
+  // We add our $httpInterceptor into the array
+  // of interceptors. Think of it like middleware for your ajax calls
+  $httpProvider.interceptors.push('AttachTokens');
 })
-.factory('AttatchTokens', function ($window) {
+.factory('AttachTokens', function ($window) {
   // this is an $httpInterceptor
   // its job is to stop all out going request
   // then look in local storage and find the user's token

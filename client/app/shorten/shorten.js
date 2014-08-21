@@ -1,9 +1,7 @@
-angular.module('shortly.shorten', [])
+angular.module('shortly.shorten', ['shortly.services'])
 
 .controller('ShortenController', function ($scope, $location, Links) {
   // Your code here
-  $scope.link = {};
-  $scope.addLink = function(link){
-    console.log('shortenController is adding link:'+link+'.');
-  };
+  console.log(Links);
+  $scope.addLink = Links.addLink;
 });
