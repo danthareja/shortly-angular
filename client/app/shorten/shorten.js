@@ -11,5 +11,5 @@ angular.module('shortly.shorten', ['shortly.services'])
       .catch(function (error) {
         console.error(error);
       });
-  }
+  };
 });

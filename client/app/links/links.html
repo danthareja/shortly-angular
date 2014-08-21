@@ -1,5 +1,18 @@
 <div id='container'>
   <!-- Your html here -->
-  <!-- <div ng-controller='LinksController'>
-  </div> -->
+  <h2>Your links are here:</h2>
+  <table ng-init="getLinks()">
+    <thead>
+      <td>code</td>
+      <td>title</td>
+      <td>url</td>
+      <td>visits</td>
+    </thead>
+    <tr ng-repeat="link in data">
+      <td>{{link.code}}</td>
+      <td>{{link.title}}</td>
+      <td>{{link.url}}</td>
+      <td>{{link.visits}}</td>
+    </tr>
+  </table>
 </div>

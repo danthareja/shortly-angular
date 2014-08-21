@@ -4,6 +4,13 @@ angular.module('shortly.links', [])
   // Your code here
     $scope.data = {};
     $scope.getLinks = function(){
-      console.log('LinksController called getLinks('+JSON.stringify(arguments)+').');
+      Links.getLinks()
+        .then(function(links) {
+          console.log('response from getLinks',links);
+          $scope.data = links;
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
     };
 });
